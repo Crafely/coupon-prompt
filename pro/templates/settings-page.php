@@ -267,8 +267,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<h3><?php _e( 'Pro Features Status', 'coupon-prompt' ); ?></h3>
 				<div class="pro-status-display">
 					<?php
-					$license_info = Coupon_Prompt_Pro_License::get_license_info();
-					$pro_status   = coupon_prompt_get_pro_status();
+					$pro_status = coupon_prompt_get_pro_status();
 					?>
 					<table class="form-table">
 						<tr>
@@ -280,14 +279,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 							</td>
 						</tr>
 						<tr>
-							<th scope="row"><?php _e( 'License Status', 'coupon-prompt' ); ?></th>
+							<th scope="row"><?php _e( 'Pro Status', 'coupon-prompt' ); ?></th>
 							<td>
-								<span class="status-indicator <?php echo $pro_status['licensed'] ? 'active' : 'inactive'; ?>">
-									<?php echo $pro_status['licensed'] ? '✅ Licensed' : ( $license_info['demo_mode'] ? '🔧 Demo Mode' : '❌ Unlicensed' ); ?>
+								<span class="status-indicator <?php echo $pro_status['active'] ? 'active' : 'inactive'; ?>">
+									<?php echo $pro_status['active'] ? '✅ Active' : '❌ Inactive'; ?>
 								</span>
-								<?php if ( ! $pro_status['licensed'] ) : ?>
-									<br><a href="<?php echo admin_url( 'admin.php?page=coupon-prompt-pro-license' ); ?>" class="button button-secondary">
-										<?php _e( 'Manage License', 'coupon-prompt' ); ?>
+								<?php if ( ! $pro_status['active'] ) : ?>
+									<br><small><?php _e( 'Pro features are automatically active when the pro folder exists in your installation.', 'coupon-prompt' ); ?></small>
 									</a>
 								<?php endif; ?>
 							</td>

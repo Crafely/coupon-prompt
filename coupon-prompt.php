@@ -54,7 +54,6 @@ if ( COUPON_PROMPT_IS_PRO ) {
 	require_once COUPON_PROMPT_PRO_DIR . 'includes/class-coupon-prompt-pro-analytics.php';
 	require_once COUPON_PROMPT_PRO_DIR . 'includes/class-coupon-prompt-pro-targeting.php';
 	require_once COUPON_PROMPT_PRO_DIR . 'includes/class-coupon-prompt-pro-ab-testing.php';
-	require_once COUPON_PROMPT_PRO_DIR . 'includes/class-coupon-prompt-pro-license.php';
 	require_once COUPON_PROMPT_PRO_DIR . 'includes/class-coupon-prompt-pro-settings.php';
 	require_once COUPON_PROMPT_PRO_DIR . 'includes/class-coupon-prompt-pro-scheduler.php';
 }
@@ -89,19 +88,14 @@ function coupon_prompt_init() {
  * Initialize Pro features
  */
 function coupon_prompt_init_pro() {
-	// Initialize Pro license system
-	Coupon_Prompt_Pro_License::init();
-
-	// Only initialize other Pro features if license is valid or in development
-	if ( Coupon_Prompt_Pro_License::is_license_valid() || defined( 'WP_DEBUG' ) && WP_DEBUG ) {
-		Coupon_Prompt_Pro_Admin::init();
-		Coupon_Prompt_Pro_Frontend::init();
-		Coupon_Prompt_Pro_Analytics::init();
-		Coupon_Prompt_Pro_Targeting::init();
-		Coupon_Prompt_Pro_AB_Testing::init();
-		Coupon_Prompt_Pro_Settings::init();
-		Coupon_Prompt_Pro_Scheduler::init();
-	}
+	// Initialize all Pro features directly (no license check needed)
+	Coupon_Prompt_Pro_Admin::init();
+	Coupon_Prompt_Pro_Frontend::init();
+	Coupon_Prompt_Pro_Analytics::init();
+	Coupon_Prompt_Pro_Targeting::init();
+	Coupon_Prompt_Pro_AB_Testing::init();
+	Coupon_Prompt_Pro_Settings::init();
+	Coupon_Prompt_Pro_Scheduler::init();
 }
 
 /**
@@ -130,7 +124,6 @@ function coupon_prompt_deactivate() {
 	if ( COUPON_PROMPT_IS_PRO ) {
 		wp_clear_scheduled_hook( 'coupon_prompt_pro_cleanup_analytics' );
 		wp_clear_scheduled_hook( 'coupon_prompt_pro_check_scheduled_coupons' );
-		wp_clear_scheduled_hook( 'coupon_prompt_pro_check_license' );
 	}
 }
 
@@ -148,18 +141,14 @@ function coupon_prompt_get_pro_status() {
 	if ( ! COUPON_PROMPT_IS_PRO ) {
 		return array(
 			'available' => false,
-			'licensed'  => false,
-			'message'   => __( 'Pro features not available. Contact support for Pro version.', 'coupon-prompt' ),
+			'active'    => false,
+			'message'   => __( 'Pro features not available. Pro folder not found in bundle.', 'coupon-prompt' ),
 		);
 	}
 
-	$licensed = Coupon_Prompt_Pro_License::is_license_valid();
-
 	return array(
 		'available' => true,
-		'licensed'  => $licensed,
-		'message'   => $licensed
-			? __( 'Pro features active and licensed.', 'coupon-prompt' )
-			: __( 'Pro features available but not licensed. Please enter your license key.', 'coupon-prompt' ),
+		'active'    => true,
+		'message'   => __( 'Pro features are active and ready to use.', 'coupon-prompt' ),
 	);
 }

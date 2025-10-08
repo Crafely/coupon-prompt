@@ -48,23 +48,7 @@
     background: linear-gradient(135deg, #0ea5e9, #00d4aa) !important;
 }
 
-/* Pro badge for demo mode */
-.coupon-prompt-pro-badge {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: linear-gradient(135deg, #00d4aa, #0ea5e9);
-    color: white;
-    padding: 10px 16px;
-    border-radius: 25px;
-    font-size: 12px;
-    font-weight: 600;
-    z-index: 9999;
-    box-shadow: 0 4px 20px rgba(0, 212, 170, 0.3);
-    animation: proPulse 3s infinite;
-    cursor: default;
-    user-select: none;
-}
+/* Pro status indicator - removed as no longer needed */
 
 @keyframes proPulse {
     0%, 100% {

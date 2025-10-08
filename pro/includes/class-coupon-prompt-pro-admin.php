@@ -30,15 +30,13 @@ class Coupon_Prompt_Pro_Admin {
 			return;
 		}
 
-		$license_info = Coupon_Prompt_Pro_License::get_license_info();
-
 		$wp_admin_bar->add_node(
 			array(
 				'id'    => 'coupon-prompt-pro',
 				'title' => '<span style="color: #00d4aa;">⚡ Coupon Prompt Pro</span>',
-				'href'  => admin_url( 'admin.php?page=coupon-prompt-pro-license' ),
+				'href'  => admin_url( 'edit.php?post_type=shop_coupon' ),
 				'meta'  => array(
-					'title' => $license_info['valid'] ? 'Pro features active' : 'Pro features available',
+					'title' => 'Pro features active - Manage your coupon prompts',
 				),
 			)
 		);
