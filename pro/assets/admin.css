@@ -1,0 +1,202 @@
+/* Coupon Prompt Pro Admin Styles */
+
+.coupon-prompt-pro-fields {
+    background: linear-gradient(135deg, #f0fdf9 0%, #f0f9ff 100%);
+    border: 2px solid #00d4aa;
+    border-radius: 12px;
+    padding: 25px;
+    margin: 25px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.coupon-prompt-pro-fields::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #00d4aa, #0ea5e9, #f59e0b);
+}
+
+.coupon-prompt-pro-fields h3 {
+    margin-top: 0;
+    color: #065f46;
+    border-bottom: 2px solid #00d4aa;
+    padding-bottom: 15px;
+    font-size: 18px;
+}
+
+.coupon-prompt-pro-fields .options_group {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(0, 212, 170, 0.2);
+}
+
+.coupon-prompt-pro-fields h4 {
+    color: #0369a1;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* Pro indicator in admin bar */
+#wpadminbar .ab-item .pro-indicator {
+    background: linear-gradient(45deg, #00d4aa, #0ea5e9);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 10px;
+    font-size: 10px;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+/* Analytics dashboard improvements */
+.analytics-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-bottom: 35px;
+}
+
+.summary-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border: 2px solid #00d4aa;
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 212, 170, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.summary-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(0, 212, 170, 0.25);
+}
+
+.summary-card h3 {
+    margin: 0 0 15px 0;
+    color: #1e293b;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stat-number {
+    font-size: 36px;
+    font-weight: 700;
+    background: linear-gradient(45deg, #00d4aa, #0ea5e9);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.stat-label {
+    color: #64748b;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* Pro badge animation */
+@keyframes proPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.pro-badge {
+    animation: proPulse 2s infinite;
+}
+
+/* Settings page improvements */
+.coupon-settings-tabs .nav-tab-wrapper {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    padding: 10px;
+    border-radius: 8px 8px 0 0;
+    border: 2px solid #00d4aa;
+    border-bottom: none;
+}
+
+.nav-tab {
+    border: none !important;
+    background: transparent !important;
+    color: #64748b !important;
+    font-weight: 600 !important;
+    padding: 12px 20px !important;
+    margin-right: 10px !important;
+    border-radius: 6px !important;
+    transition: all 0.3s ease !important;
+}
+
+.nav-tab:hover {
+    background: rgba(0, 212, 170, 0.1) !important;
+    color: #065f46 !important;
+}
+
+.nav-tab-active {
+    background: linear-gradient(135deg, #00d4aa, #0ea5e9) !important;
+    color: white !important;
+    box-shadow: 0 4px 12px rgba(0, 212, 170, 0.3) !important;
+}
+
+.tab-content {
+    border: 2px solid #00d4aa;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+}
+
+/* Form improvements */
+.form-table th {
+    color: #1e293b;
+    font-weight: 600;
+}
+
+.form-table input[type="checkbox"] {
+    transform: scale(1.2);
+    accent-color: #00d4aa;
+}
+
+.form-table .description {
+    color: #64748b;
+    font-style: italic;
+}
+
+/* Button improvements */
+.button-primary {
+    background: linear-gradient(135deg, #00d4aa, #0ea5e9) !important;
+    border: none !important;
+    color: white !important;
+    font-weight: 600 !important;
+    padding: 10px 20px !important;
+    border-radius: 6px !important;
+    box-shadow: 0 4px 12px rgba(0, 212, 170, 0.3) !important;
+    transition: all 0.3s ease !important;
+}
+
+.button-primary:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 18px rgba(0, 212, 170, 0.4) !important;
+}
+
+/* Responsive improvements */
+@media (max-width: 782px) {
+    .analytics-summary {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .coupon-prompt-pro-fields {
+        margin: 15px 0;
+        padding: 15px;
+    }
+
+    .nav-tab {
+        margin-bottom: 5px !important;
+    }
+}
